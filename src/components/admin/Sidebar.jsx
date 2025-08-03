@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaChartPie, FaUsers, FaTasks, FaCog } from "react-icons/fa";
+import { FaChartPie, FaUsers, FaTasks, FaCog, FaUser, FaUserCog } from "react-icons/fa";
 import { useAuth } from "../../contexts/AuthContext";
 
 const Sidebar = () => {
@@ -14,6 +14,7 @@ const Sidebar = () => {
       : [
           { path: "/admin/dashboard", label: "Dashboard", icon: <FaChartPie /> },
           { path: "/admin/manage-users", label: "Manage Users", icon: <FaUsers /> },
+          { path: "/admin/user-logs", label: "Users Logs", icon: <FaUserCog /> },
           { path: "/admin/task-filter", label: "Filter Tasks", icon: <FaTasks /> },
           { path: "/admin/manage-tasks", label: "Manage Tasks", icon: <FaTasks /> },
           { path: "/admin/settings", label: "Settings", icon: <FaCog /> },

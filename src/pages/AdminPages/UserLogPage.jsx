@@ -18,6 +18,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { FaTrash, FaSpinner, FaExclamationTriangle, FaUserShield, FaSort, FaFilter } from 'react-icons/fa';
+import Sidebar from '../../components/admin/Sidebar';
 
 const UserLogPage = () => {
   // State management with proper initialization
@@ -265,7 +266,9 @@ const UserLogPage = () => {
   }
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow">
+    <div className='flex'>
+      <Sidebar />
+      <div className="flex-1 bg-white p-6 rounded-lg shadow">
       <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center">
         <FaUserShield className="mr-2" aria-hidden="true" />
         User Activity Logs
@@ -447,6 +450,8 @@ const UserLogPage = () => {
         </table>
       </div>
     </div>
+    </div>
+    
   );
 };
 

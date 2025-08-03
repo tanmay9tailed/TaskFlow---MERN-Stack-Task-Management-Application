@@ -6,14 +6,27 @@ const RecentUsers = () => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("https://zidio-task-management-backend.onrender.com/admin/users") // API URL
+  const localUserData = localStorage.getItem("users");
+  if (!localUserData) {
+    fetch("https://zidio-task-management-backend.onrender.com/admin/users")
       .then((res) => res.json())
       .then((data) => {
         const sortedUsers = data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
         setUsers(sortedUsers);
+        localStorage.setItem("users", JSON.stringify(sortedUsers)); // optional: cache in localStorage
       })
-      .catch((err) => console.error(err));
-  }, []);
+      .catch((err) => console.error("Error fetching users:", err));
+  } else {
+    try {
+      const parsedData = JSON.parse(localUserData); // ✅ convert string to array
+      setUsers(parsedData);
+    } catch (error) {
+      console.error("Error parsing local storage users:", error);
+      setUsers([]); // fallback to empty array
+    }
+  }
+}, []);
+
   const formatDate = (utcDate) => {
     return new Date(utcDate).toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
 };

@@ -177,7 +177,7 @@ const TaskFilter = () => {
   }
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow">
+    <div className="flex-1 bg-white p-6 rounded-lg shadow">
       <h2 className="text-2xl font-bold mb-6 text-gray-800 flex items-center">
         <FaTasks className="mr-2" aria-hidden="true" />
         Task Filter

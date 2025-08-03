@@ -31,6 +31,12 @@ const Navbar = () => {
         profilePic: storedProfile.profilePic || "",
         role: storedProfile.role || (isAdminPortal ? "admin" : "user"), // Ensure role is set
       });
+    } else {
+      setProfile({
+        name: isAdminPortal ? "Admin" : "User",
+        profilePic: "",
+        role: isAdminPortal ? "admin" : "user", // Ensure role is set
+      });
     }
   }, [location.pathname]); // Re-run when path changes
 
@@ -149,7 +155,7 @@ const Navbar = () => {
                 <ul className="text-gray-700">
                   <li>
                     <Link
-                      to={profile.role === "admin" ? "/admin/profile" : "/user/profile"}
+                      to={profile.role === "admin" ? "/admin/settings" : "/user/profile"}
                       className="block px-4 py-2 hover:bg-gray-200 transition"
                       onClick={() => setDropdownOpen(false)}
                     >
