@@ -15,6 +15,7 @@ const UserSidebar = () => {
     : [
         { path: "/user/dashboard", label: "Dashboard", icon: <FaChartBar /> },
         { path: "/user/userpage", label: "Create Tasks", icon: <FaTasks /> },
+        { path: "/user/task-filter", label: "Fliter Tasks", icon: <FaTasks /> },
         { path: "/user/calendar", label: "Calendar", icon: <FaCalendarAlt /> },
         { path: "/user/notifications", label: "Notifications", icon: <FaBell /> },
         { path: "/user/profile", label: "Profile", icon: <FaUser /> },

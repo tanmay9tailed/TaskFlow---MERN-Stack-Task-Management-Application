@@ -47,6 +47,7 @@ import AuthProvider from "./contexts/AuthContext";
 import NotificationProvider from "./contexts/NotificationContext";
 
 import ProtectedRoute from "./components/auth/ProtectedRoute";
+import TaskFilterPage from "./pages/UserPages/TaskFilterPage";
 
 /**
  * Protected Route Component
@@ -107,6 +108,8 @@ function App() {
                 {/* <Route path="/" element={<Landing />} /> */}
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/admin/login" element={<Login />} />
+                <Route path="/admin/signup" element={<Signup />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
                 <Route path="/reset-password" element={<ResetPassword />} />
                 
@@ -164,7 +167,7 @@ function App() {
                   path="/admin/task-filter" 
                   element={
                     <ProtectedRoute requiredRole="admin">
-                      <TaskFilter />
+                      <TaskFilterPage />
                     </ProtectedRoute>
                   } 
                 />
@@ -212,7 +215,7 @@ function App() {
                   path="/user/task-filter" 
                   element={
                     <ProtectedRoute>
-                      <TaskFilter />
+                      <TaskFilterPage />
                     </ProtectedRoute>
                   } 
                 />

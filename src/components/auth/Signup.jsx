@@ -43,7 +43,7 @@ const Signup = () => {
   const location = useLocation();
   
   // Extract role from location state or default to user
-  const role = location.state?.role || "user";
+  const role = location.pathname === "/admin/login" ? "admin" : "user";
 
   /**
    * Effect hook to check for existing authentication
